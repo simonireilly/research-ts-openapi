@@ -4,12 +4,14 @@ const Service = require('./Service');
 /**
 * Create a pet
 *
+* newPet NewPet Create pet body (optional)
 * no response value expected for this operation
 * */
-const createPets = () => new Promise(
+const createPets = ({ newPet }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
+        newPet,
       }));
     } catch (e) {
       reject(Service.rejectResponse(

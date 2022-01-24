@@ -1,25 +1,25 @@
-help:
+og-help:
 	docker run \
     --rm \
     -v "${PWD}:/local" \
     openapitools/openapi-generator-cli help generate
 
-list:
+og-list:
 	docker run \
     --rm \
     -v "${PWD}:/local" \
     openapitools/openapi-generator-cli list
 
-ts-client:
+og-ts-client:
 	docker run \
     --rm \
     -v "${PWD}:/local" \
     openapitools/openapi-generator-cli generate \
     -i /local/schema.json \
     -g typescript-axios \
-    -o /local/openapi-generator/ts
+    -o /local/openapi-generator/client
 
-ts-server:
+og-node-server:
 	docker run \
     --rm \
     -v "${PWD}:/local" \
@@ -27,3 +27,6 @@ ts-server:
     -i /local/schema.json \
     -g nodejs-express-server \
     -o /local/openapi-generator/server
+
+ot-types:
+	npx openapi-typescript schema.json --output ./openapi-typescript/schema.ts

@@ -46,6 +46,12 @@ paths:
       x-eov-operation-handler: controllers/PetsController
     post:
       operationId: createPets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPet'
+        description: Create pet body
       responses:
         "201":
           description: Null response
@@ -105,6 +111,18 @@ components:
           type: string
       required:
       - id
+      - name
+      type: object
+    NewPet:
+      example:
+        name: name
+        tag: tag
+      properties:
+        name:
+          type: string
+        tag:
+          type: string
+      required:
       - name
       type: object
     Pets:

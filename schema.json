@@ -69,6 +69,16 @@
         "tags": [
           "pets"
         ],
+        "requestBody": {
+          "description": "Create pet body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPet"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "Null response"
@@ -142,6 +152,20 @@
             "type": "integer",
             "format": "int64"
           },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        }
+      },
+      "NewPet": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
           "name": {
             "type": "string"
           },
